@@ -1,0 +1,366 @@
+body{
+    background: rgb(98, 255, 234);
+}
+
+header{
+    background: rgb(0, 174, 255);
+padding: 10px;
+color: red;
+border-radius: 10px;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+width: 80%;
+}
+
+table {
+    border-collapse: collapse
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #ddd
+    padding: 4px
+}
+
+tr:nth-child(even){background-color: #ddd;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+    padding-top: 8px;
+padding-bottom: 8px;
+text-align: left;
+background-color: #ddd;
+color: black;
+}
+
+a {
+    color: #e43d3d;
+    font: italic;
+    text-decoration: none;
+}
+
+input {
+    background: rgb(253, 253, 253);
+padding: 1px;
+color: black;
+border-radius: 1px;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+width: 30%;
+}
+
+p {
+    font: Georgia;
+}
+
+span {
+    width: 50%;
+}
+
+img {
+    border-radius: 10px;
+}
+
+footer {
+    color: #000000;
+    font-size: 16px;
+}
+
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;       
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* .top-card {
+  display: flex;
+  gap: 50px;         
+  align-items: center; 
+} */
+
+.top-card a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px 16px;   /* 8px сверху/снизу и 16px слева/справа */
+  font-weight: 500;
+}
+
+.why-us h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-item {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+.feature-item span {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.feature-item h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1f2937;
+}
+
+.feature-item p {
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+details {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+}
+
+summary {
+  font-weight: 600;
+  list-style: none; /* убирает стрелочку в некоторых браузерах */
+  outline: none;
+}
+
+/* Добавляем свою стрелочку через псевдоэлемент (опционально) */
+summary::after {
+  float: right;
+  content: '+';
+  font-weight: bold;
+  color: #2563eb;
+}
+
+details[open] summary::after {
+  content: '−';
+}
+
+.equipment {
+  padding: 4rem 1rem;
+  background-color: #ffffff;
+  border-radius: 24px;
+}
+
+.equipment h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.eq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.eq-item {
+  padding: 1.8rem 1.5rem;
+  background: #f8fafc;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.eq-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.06);
+}
+
+.eq-item .icon {
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+
+.eq-item h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.eq-item p {
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.calculator-block {
+    max-width: 420px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .calculator-block h3 {
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+  }
+
+  .calc-group {
+    margin-bottom: 1rem;
+  }
+
+  .calc-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #374151;
+    font-weight: 500;
+  }
+
+  .calc-group input,
+  .calc-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
+  .btn-calc {
+    width: 100%;
+    padding: 14px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .btn-calc:hover {
+    background-color: #1d4ed8;
+  }
+
+  #result-price {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #059669;
+    min-height: 1.2em;
+  }
+
+  .disclaimer {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: #6b7280;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+
+   
+    .comparison-grid {
+    display: grid;
+    /* Автоматически ставит по 2 карточки в ряд на компьютере */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+  }
+
+  .comparison-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Контейнер для двух фото рядом */
+  .dual-photo-wrapper {
+    display: grid;
+    /* Делит место пополам: 50% на "До", 50% на "После" */
+    grid-template-columns: 1fr 1fr;
+    height: 240px; /* Фиксированная высота карточки с фото */
+    overflow: hidden;
+  }
+
+  .side-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Разделитель между фото (тонкая линия) */
+  .divider {
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    width: 2px;
+    background-color: #e5e7eb;
+    z-index: 10;
+  }
+
+  /* Подписи под фото */
+  .labels-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .item-title {
+    padding: 16px;
+    margin: 0;
+    color: #0f172a;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

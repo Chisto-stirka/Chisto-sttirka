@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы о химчистке «Чисто»</title>
+    <!-- Подключаем иконки для красоты -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;       /* Синий цвет бренда */
+            --accent: #f59e0b;       /* Жёлтый для звёзд */
+            --bg: #f8fafc;            /* Светло-фиолетовый фон */
+            --card-bg: #ffffff;       /* Белый для карточек */
+            --text: #111827;          /* Тёмный текст */
+            --gray: #6b7280;          /* Серый для второстепенного текста */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Шапка */
+        header {
+            background: var(--card-bg);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        a { text-decoration: none; color: var(--gray); font-weight: 500; }
+        a:hover { color: var(--primary); }
+        .active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+
+        h1 { text-align: center; margin-top: 40px; color: var(--text); }
+        p.subtitle { text-align: center; color: var(--gray); max-width: 600px; margin: 0 auto 50px; }
+
+        /* --- БЛОК СТАТИСТИКИ (ИНТЕРЕСНЕЕ) --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .big-num { font-size: 48px; font-weight: bold; color: var(--primary); line-height: 1; }
+        .stat-label { color: var(--gray); margin-top: 10px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        
+        /* Диаграмма распределения */
+        .rating-distribution {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .stars-small { color: var(--accent); font-size: 14px; width: 35px; text-align: right; }
+        .progress-bar {
+            flex-grow: 1;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 0%; /* Заполняется через JS */
+            transition: width 1s ease-out;
+        }
+        .count-num { color: var(--primary); font-weight: bold; min-width: 20px; text-align: right; }
+
+        /* --- ФОРМА --- */
+        .form-section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+            border: 1px solid #e5e7eb;
+        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #1f2937; }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        button.submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        button.submit-btn:hover { background: #1d4ed8; }
+
+        /* --- СПИСОК ОТЗЫВОВ --- */
+        .reviews-list {
+            display: grid;
+            gap: 30px;
+        }
+        .review-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 5px solid var(--primary);
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        .review-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .reviewer-name { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+        .review-date { color: var(--gray); font-size: 0.9rem; }
+        .review-stars { color: var(--accent); margin-bottom: 15px; }
+        .review-text { color: #374151; }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--gray);
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html">О химчистке</a>
+                <a href="about.html">Прайс-лист</a>
+                <a href="primeri.html">Примеры работ</a>
+                <a href="#" class="active">Отзывы</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Что говорят наши клиенты</h1>
+        <p class="subtitle">Мы ценим каждое мнение. Средний рейтинг формируется на основе реальных оценок из нашей базы данных.</p>
+
+        <!-- Статистика -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <!-- Здесь мы вручную поставим среднюю оценку, чтобы не ломать логику -->
+                <div class="big-num">4.8</div>
+                <div class="stars-large">★★★★☆</div>
+                <div class="stat-label">Средний рейтинг</div>
+            </div>
+            <div class="stat-card">
+                <div class="big-num" id="total-reviews">3</div>
+                <div class="stat-label">Всего отзывов</div>
+            </div>
+            
+            <!-- Блок диаграммы (статический пример) -->
+            <div class="stat-card" style="grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+                <h3 style="text-align: center; margin: 0 0 20px;">Распределение оценок</h3>
+                <div class="rating-distribution">
+                    <div class="bar-row">
+                        <span class="stars-small">5★</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+                        <span class="count-num">2</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="stars-small">4★</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+                        <span class="count-num">1</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="stars-small">3★</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                        <span class="count-num">0</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="stars-small">2★</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                        <span class="count-num">0</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="stars-small">1★</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+                        <span class="count-num">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма -->
+        <section class="form-section">
+            <h2 style="margin-top:0; margin-bottom:20px;">Поделитесь мнением</h2>
+            <p style="color:var(--gray); margin-bottom:30px;">Мы прочитаем ваш отзыв и свяжемся с вами, если потребуется уточнение.</p>
+            
+            <!-- ВАЖНО: action ведет прямо на Google Script. method="POST". Нет onsubmit! -->
+            <form action="https://script.google.com/macros/s/AKfycbwCcK3U7pm85iudgbvR3y4Ulh1Gzy_-y-i9Rs-zDwCR5x7DGD-Mqr5RqYFoYuJ7GdJx3g/exec" 
+                  method="POST">
+                
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <!-- name="name" обязателен для Google Script -->
+                    <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Оценка</label>
+                    <!-- name="rating" обязателен -->
+                    <select id="rating" name="rating" required>
+                        <option value="5">5 звезд</option>
+                        <option value="4">4 звезды</option>
+                        <option value="3">3 звезды</option>
+                        <option value="2">2 звезды</option>
+                        <option value="1">1 звезда</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Отзыв</label>
+                    <!-- name="comment" обязателен -->
+                    <textarea id="comment" name="comment" rows="4" required placeholder="Расскажите о своих впечатлениях..."></textarea>
+                </div>
+
+                <!-- Кнопка просто отправляет форму -->
+                <button type="submit" class="submit-btn">Отправить отзыв</button>
+            </form>
+        </section>
+
+        <!-- Список отзывов -->
+        <h2>Лента отзывов</h2>
+        <div class="reviews-list" id="reviews-container">
+            <!-- Карточки отзывов (статические, чтобы сайт не был пустым) -->
+            
+            <article class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Анна Смирнова</span>
+                    <span class="review-date">10.10.2024</span> 
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">Отличная химчистка! Костюм как новый, запах исчез полностью. Персонал вежливый, всё объяснили.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Дмитрий Петров</span>
+                    <span class="review-date">12.10.2024</span> 
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">Всё хорошо, но доставка заняла на день больше обещанного. В остальном качеством доволен.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">Елена Васильева</span>
+                    <span class="review-date">15.10.2024</span> 
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">Принесла диван — думали, не спасти. Ребята сделали невозможное! Спасибо огромное!</p>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Все права защищены. Стирка ковров «Чисто».
+    </footer>
+
+    <!-- Единственный JS, который нужен: функция отрисовки звёзд -->
+    <script>
+        function renderStars(num) {
+            let stars = '';
+            const rating = Math.round(num); 
+            for (let i = 1; i <= 5; i++) {
+                stars += i <= rating ? '★' : '☆';
+            }
+            return stars;
+        }
+    </script>
+</body>
+</html>

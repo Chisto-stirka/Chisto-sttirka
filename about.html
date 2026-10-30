@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс-лист</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header style="background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 15px 0;">
+        <nav style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 20px;">
+            <a href="index.html" style="text-decoration: none; color: #2563eb; font-weight: 600; font-size: 1rem;">О химчистке</a>
+            <a href="#" style="text-decoration: none; color: #2563eb; font-weight: 600; font-size: 1rem; border-bottom: 2px solid #2563eb;">Прайс-лист</a>
+            <a href="chisto.html" style="text-decoration: none; color: #374151; font-weight: 500; font-size: 1rem;">Оборудование</a>
+            <a href="primeri.html" style="text-decoration: none; color: #374151; font-weight: 500; font-size: 1rem;">Примеры работ</a>
+            <a href="otziv.html">Отзыв о сайте</a>
+          </nav>
+    </header><br><br><br>
+
+<section style="padding: 40px 20px; background-color: #ffffff; font-family: Arial, sans-serif;">
+  <h2 style="text-align: center; color: #1f2937; margin-bottom: 15px;">Стоимость наших услуг</h2>
+  <p style="text-align: center; max-width: 600px; margin: 0 auto 30px auto; color: #64748b; line-height: 1.5;">
+    Цены указаны ориентировочно. Точная стоимость определяется после осмотра изделия.
+  </p>
+
+  <!-- ВОТ СЮДА ДОБАВЛЕНЫ border-radius И overflow -->
+  <table style="width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border-radius: 12px; overflow: hidden;">
+    <thead>
+      <tr style="background-color: #f8fafc;">
+        <th style="padding: 16px 20px; text-align: left; color: #374151; font-weight: 600; border-bottom: 1px solid #e5e7eb;">Услуга</th>
+        <th style="padding: 16px 20px; text-align: right; color: #374151; font-weight: 600; border-bottom: 1px solid #e5e7eb; width: 35%;">Цена</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb;" data-label="Услуга">
+          <strong>Ковёр (короткий ворс)</strong>
+        </td>
+        <td style="padding: 16px 20px; text-align: right; border-bottom: 1px solid #e5e7eb;" data-label="Цена">
+          от 300 ₽ / м²
+        </td>
+      </tr>
+
+      <tr>
+        <td style="padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb;" data-label="Услуга">
+          <strong>Ковёр шегги (длинный ворс)</strong>
+        </td>
+        <td style="padding: 16px 20px; text-align: right; border-bottom: 1px solid #e5e7eb;" data-label="Цена">
+          от 320 ₽ / м²
+        </td>
+      </tr>
+
+      <tr>
+        <td style="padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb;" data-label="Услуга">
+          <strong>Стирка пледов/одеял</strong>
+        </td>
+        <td style="padding: 16px 20px; text-align: right; border-bottom: 1px solid #e5e7eb;" data-label="Цена">
+          от 700 ₽ / шт
+        </td>
+      </tr>
+
+      <tr>
+        <td style="padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb;" data-label="Услуга">
+          <strong>Стирка накидок от диванов</strong>
+        </td>
+        <td style="padding: 16px 20px; text-align: right; border-bottom: 1px solid #e5e7eb;" data-label="Цена">
+          от 1000 ₽ / шт
+        </td>
+      </tr>
+
+      <!-- Строки с выделением тоже будут аккуратно скруглены благодаря overflow у таблицы -->
+      <tr style="background-color: #eff6ff; border-left: 5px solid #2563eb;">
+        <td style="padding: 16px 20px; text-align: left; border-bottom: 1px solid #e5e7eb;" data-label="Услуга">
+          <strong>Срочный заказ</strong> <small>(забор, чистка, доставка)</small>
+        </td>
+        <td style="padding: 16px 20px; text-align: right; border-bottom: 1px solid #e5e7eb; color: #1e40af; font-weight: 700;" data-label="Цена">
+          +50% к общей стоимости стирки
+        </td>
+      </tr>
+
+      <tr style="background-color: #eff6ff; border-left: 5px solid #2563eb;">
+        <td style="padding: 16px 20px; text-align: left; border-bottom: none;" data-label="Услуга">
+          <strong>Выведение неприятных запахов</strong> <small>(доп. услуга)</small>
+        </td>
+        <td style="padding: 16px 20px; text-align: right; border-bottom: none; color: #1e40af; font-weight: 700;" data-label="Цена">
+          +50% только к стоимости стирки (доставка не учитывается)
+        </td>
+      </tr>
+
+      <tr style="background-color: #eff6ff; border-left: 5px solid #2563eb;">
+        <td style="padding: 16px 20px; text-align: left; border-bottom: none;" data-label="Услуга">
+          <strong>Оверлог</strong>
+        </td>
+        <td style="padding: 16px 20px; text-align: right; border-bottom: none; color: #1e40af; font-weight: 700;" data-label="Цена">
+          280р - оверлог,  100р - обрезка (цена за метр)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 25px; text-align: center; font-size: 0.85rem; color: #94a3b8;">
+    Стоимость предварительная. Окончательная цена определяется мастером после осмотра изделия.
+  </div>
+</section><br><br>
+
+<!-- Начало блока калькулятора -->
+<section class="calculator-block">
+  <h3>Быстрый расчёт стоимости</h3>
+
+  <div class="calc-group">
+    <label for="carpet-type">Тип ковра</label>
+    <select id="carpet-type">
+      <option value="regular">Обычный ковёр (короткий ворс)</option>
+      <option value="shaggy">Шегги (длинный ворс)</option>
+    </select>
+  </div>
+
+  <div class="calc-group">
+    <label for="area">Площадь (м²)</label>
+    <input type="number" id="area" placeholder="Например, 5" min="0.1" step="0.1">
+  </div>
+
+  <button type="button" id="calc-btn" class="btn-calc">Рассчитать стоимость</button>
+
+  <p id="result-price"></p>
+
+  <p class="disclaimer">
+    Стоимость предварительная. Точная цена зависит от материала, степени загрязнения и дополнительных услуг.
+  </p>
+</section>
+
+<script>
+  const typeSelect = document.getElementById('carpet-type');
+  const areaInput = document.getElementById('area');
+  const calcBtn = document.getElementById('calc-btn');
+  const resultEl = document.getElementById('result-price');
+
+  // Твои цены
+  const PRICES = {
+    regular: 300, // Обычный ковёр (короткий ворс)
+    shaggy: 320   // Шегги (длинный ворс)
+  };
+
+  calcBtn.addEventListener('click', () => {
+    const type = typeSelect.value;
+    const areaValue = parseFloat(areaInput.value);
+
+    // Проверка: введено ли число
+    if (!areaValue || isNaN(areaValue) || areaValue <= 0) {
+      resultEl.textContent = 'Пожалуйста, введите корректную площадь.';
+      resultEl.style.color = '#ef4444';
+      return;
+    }
+
+    const pricePerSqm = PRICES[type];
+    const total = areaValue * pricePerSqm;
+
+    resultEl.textContent = `Примерная стоимость: от ${total.toLocaleString()} ₽`;
+    resultEl.style.color = '#059669';
+  });
+</script><br><br>
+<!-- Конец блока калькулятора -->
+
+
+    <article class="card">
+      <div class="card-image">
+      </div>
+<footer style="text-align: center; padding: 30px 0; color: #9ca3af; background-color: #ffffff; border-top: 1px solid #f3f4f6;">
+    <p>&copy; 2026 Все права защищены. Стиркка ковров «Чиsто».</p>
+</footer>
+
+</body>
+</html>
